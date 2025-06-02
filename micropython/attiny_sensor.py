@@ -14,7 +14,7 @@ class ATtinySensor:
 
     def _interrupt_handler(self, pin):
         self.photogate_triggered_flag = True
-        print("Photogate triggered!")
+        # print("Photogate triggered!")
 
     def read_sensors(self):
         try:

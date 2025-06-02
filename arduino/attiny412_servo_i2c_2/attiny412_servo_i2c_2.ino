@@ -1,16 +1,16 @@
 #include <Wire.h>
 #include <Servo.h>
 
-#define I2C_SLAVE_ADDRESS 0x12
-#define NUM_SERVOS 3
+#define I2C_SLAVE_ADDRESS 0x13
+#define NUM_SERVOS 2
 
 Servo servos[NUM_SERVOS];
-const uint8_t servoPins[NUM_SERVOS] = {0, 1, 4};
-int currentAngles[NUM_SERVOS] = {0, 0, 180}; // Start at neutral
-int targetAngles[NUM_SERVOS] = {0, 0, 0};
-int delays[NUM_SERVOS] = {0, 0, 0};
+const uint8_t servoPins[NUM_SERVOS] = {1, 4};
+int currentAngles[NUM_SERVOS] = {0, 0}; // Start at neutral
+int targetAngles[NUM_SERVOS] = {0, 0};
+int delays[NUM_SERVOS] = {0, 0};
 
-bool moveRequested[NUM_SERVOS] = {false, false, false};
+bool moveRequested[NUM_SERVOS] = {false, false};
 
 void receiveEvent(int numBytes) {
   if (Wire.available() < 3) return;
